@@ -1,0 +1,1 @@
+rootProject.name = "gousi_jx3_bot"
