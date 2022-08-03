@@ -3,11 +3,11 @@ package top.timewl.data
 data class DailyData(
     val code : Int,
     val msg : String,
-    val data : Data,
+    val data : DailyContent,
     val time: String,
 )
 
-data class Data(
+data class DailyContent(
     val date : String,
     val week : String,
     val war: String,

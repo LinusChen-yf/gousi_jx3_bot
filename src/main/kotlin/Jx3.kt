@@ -8,6 +8,7 @@ import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.utils.info
 import top.timewl.command.Daily
+import top.timewl.command.Joke
 
 object Jx3 : KotlinPlugin(
     JvmPluginDescription(
@@ -24,12 +25,14 @@ object Jx3 : KotlinPlugin(
         logger.info { "JX3 Plugin loaded" }
         client = HttpClient(OkHttp)
         Daily.register()
+        Joke.register()
     }
 
     override fun onDisable() {
         super.onDisable()
-        client.close()
         Daily.unregister()
+        Joke.unregister()
+        client.close()
     }
 
 }
