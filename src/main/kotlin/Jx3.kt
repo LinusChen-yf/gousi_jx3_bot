@@ -9,6 +9,7 @@ import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.utils.info
 import top.timewl.command.Daily
 import top.timewl.command.Joke
+import top.timewl.command.Journal
 
 object Jx3 : KotlinPlugin(
     JvmPluginDescription(
@@ -26,12 +27,14 @@ object Jx3 : KotlinPlugin(
         client = HttpClient(OkHttp)
         Daily.register()
         Joke.register()
+        Journal.register()
     }
 
     override fun onDisable() {
         super.onDisable()
         Daily.unregister()
         Joke.unregister()
+        Journal.unregister()
         client.close()
     }
 

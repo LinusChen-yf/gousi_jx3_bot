@@ -11,4 +11,7 @@ object CommandConfig : ReadOnlyPluginConfig("Command") {
 
     @ValueDescription("joke alias")
     val joke by value(arrayOf("joke", "骚话"))
+
+    @ValueDescription("journal alias")
+    val journal by value(arrayOf("journal", "舔狗日记"))
 }

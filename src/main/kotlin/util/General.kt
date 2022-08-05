@@ -8,6 +8,7 @@ import io.ktor.client.statement.*
 import top.timewl.Jx3
 import top.timewl.data.DailyData
 import top.timewl.data.JokeData
+import top.timewl.data.JournalData
 
 internal val httpClient by lazy {
     Jx3.client
@@ -42,6 +43,16 @@ internal suspend fun getJoke() : String{
     val response : HttpResponse = httpClient.get("https://www.jx3api.com/app/random")
     val body: String = response.body()
     val jokeData = JSON.parseObject(body, JokeData::class.javaObjectType)
+
+    return jokeData.data.text;
+
+}
+
+internal suspend fun getJournal() : String{
+
+    val response : HttpResponse = httpClient.get("https://www.jx3api.com/transmit/random")
+    val body: String = response.body()
+    val jokeData = JSON.parseObject(body, JournalData::class.javaObjectType)
 
     return jokeData.data.text;
 
