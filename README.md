@@ -10,6 +10,9 @@
 ### 将下载插件的jar包移动到机器人程序的文件夹下
 路径为机器人目录下的`/plugins`目录下
 
+### 下载`chat-command`插件
+在mcl目录下执行命令:`./mcl --update-package net.mamoe:chat-command --channel stable --type plugin`
+
 ### 启动动mirai console机器人程序并登陆
 启动mirai console成功之后,可以输入`?`指令查看所有的指令功能
 使用`login qq账号 qq密码`进行登陆操作(期间可能会碰到安全验证问题,根据提示操作即可)
