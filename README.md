@@ -1,4 +1,6 @@
 # 构思剑网三qq机器人插件
+<img src="https://s1.ax1x.com/2022/08/08/vQLbB4.png" width="200px">
+
 ## 安装教程
 ### 安装mirai console机器人程序
 安装教程: https://github.com/iTXTech/mcl-installer
