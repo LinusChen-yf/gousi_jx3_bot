@@ -12,8 +12,7 @@ data class DailyContent(
     val week : String,
     val war: String,
     val battle: String,
-    val camp: String,
-    val relief: String,
+    val leader: List<String>,
     val team: List<String>,
 )
 

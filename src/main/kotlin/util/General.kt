@@ -20,7 +20,7 @@ internal val logger by lazy {
 
 internal suspend fun getDaily() : String{
 
-    val response : HttpResponse = httpClient.get("https://www.jx3api.com/app/daily"){
+    val response : HttpResponse = httpClient.get("https://www.jx3api.com/data/active/current"){
         parameter("server","梦江南")
     }
     val body: String = response.body()
@@ -29,18 +29,18 @@ internal suspend fun getDaily() : String{
     result.append("[时间] ${dailyData.data.date} 星期${dailyData.data.week}\n")
     result.append("[大战] ${dailyData.data.war}\n")
     result.append("[战场] ${dailyData.data.battle}\n")
-    result.append("[驰援] ${dailyData.data.relief}\n")
-    result.append("[阵营] ${dailyData.data.camp}\n")
-    result.append("[周常] ${dailyData.data.team[1]}\n        ${dailyData.data.team[2]}\n")
-    result.append("[公共] ${dailyData.data.team[0]}\n")
-
+//    result.append("[周常] ${dailyData.data.team[1]}. ${dailyData.data.team[2]}\n")
+//    result.append("[公共] ${dailyData.data.team[0]}\n")
+    if (dailyData.data.leader.isNotEmpty()) {
+        result.append("[世界BOSS] ${dailyData.data.leader[0]}, ${dailyData.data.leader[1]}\n")
+    }
     return result.toString()
 
 }
 
 internal suspend fun getJoke() : String{
 
-    val response : HttpResponse = httpClient.get("https://www.jx3api.com/app/random")
+    val response : HttpResponse = httpClient.get("https://www.jx3api.com/data/saohua/random")
     val body: String = response.body()
     val jokeData = JSON.parseObject(body, JokeData::class.javaObjectType)
 
@@ -50,7 +50,7 @@ internal suspend fun getJoke() : String{
 
 internal suspend fun getJournal() : String{
 
-    val response : HttpResponse = httpClient.get("https://www.jx3api.com/transmit/random")
+    val response : HttpResponse = httpClient.get("https://www.jx3api.com/data/saohua/content")
     val body: String = response.body()
     val jokeData = JSON.parseObject(body, JournalData::class.javaObjectType)
 
