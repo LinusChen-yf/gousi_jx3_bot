@@ -31,7 +31,7 @@ internal suspend fun getDaily() : String{
     result.append("[战场] ${dailyData.data.battle}\n")
 //    result.append("[周常] ${dailyData.data.team[1]}. ${dailyData.data.team[2]}\n")
 //    result.append("[公共] ${dailyData.data.team[0]}\n")
-    if (dailyData.data.leader.isNotEmpty()) {
+    if (dailyData.data.leader?.isNotEmpty() == true) {
         result.append("[世界BOSS] ${dailyData.data.leader[0]}, ${dailyData.data.leader[1]}\n")
     }
     return result.toString()
